@@ -1,6 +1,7 @@
 package com.bikram.javafinal;
 
 import com.bikram.javafinal.Models.AppConstants;
+import com.bikram.javafinal.Models.SubjectWiseData;
 import com.bikram.javafinal.Models.Students;
 import com.bikram.javafinal.dbconnections.Dbconnection;
 import javafx.collections.ObservableList;
@@ -151,6 +152,29 @@ public class HomeController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        SubjectWiseData avg;
+        SubjectWiseData max;
+        SubjectWiseData min;
+
+        try {
+            avg= Dbconnection.getAverageMarks();
+        } catch (Exception e) {
+            avg = new SubjectWiseData(0,0,0,0,0);
+            e.printStackTrace();
+        }
+        try {
+            max= Dbconnection.getHighestMarks();
+        } catch (Exception e) {
+            max = new SubjectWiseData(0,0,0,0,0);
+            e.printStackTrace();
+        }
+        try {
+            min= Dbconnection.getLowestMarks();
+        } catch (Exception e) {
+            min = new SubjectWiseData(0,0,0,0,0);
+            e.printStackTrace();
+        }
+
         XYChart.Series<String,Number>series=new XYChart.Series<String,Number>();
         series.setName("Maths");
         series.getData().add(new XYChart.Data<String,Number>("Jan",200));
@@ -181,11 +205,36 @@ public class HomeController implements Initializable {
 //        xAxis.setTickLabelRotation(90);
 //        yAxis.setLabel("Performance");
 
-//        XYChart.Series<String, Number> series3 = new XYChart.Series<String,Number>();
+        XYChart.Series<String, Number> avgseries = new XYChart.Series<String,Number>();
+        avgseries.setName("Average");
+        avgseries.getData().add(new XYChart.Data<String,Number>("Maths",avg.getMaths()));
+        avgseries.getData().add(new XYChart.Data<String,Number>("Science",avg.getScience()));
+        avgseries.getData().add(new XYChart.Data<String,Number>("Social",avg.getSocial()));
+        avgseries.getData().add(new XYChart.Data<String,Number>("English",avg.getEnglish()));
+        avgseries.getData().add(new XYChart.Data<String,Number>("Nepali",avg.getNepali()));
+
+        XYChart.Series<String, Number> maxseries = new XYChart.Series<String,Number>();
+        maxseries.setName("Highest");
+        maxseries.getData().add(new XYChart.Data<String,Number>("Maths",max.getMaths()));
+        maxseries.getData().add(new XYChart.Data<String,Number>("Science",max.getScience()));
+        maxseries.getData().add(new XYChart.Data<String,Number>("Social",max.getSocial()));
+        maxseries.getData().add(new XYChart.Data<String,Number>("English",max.getEnglish()));
+        maxseries.getData().add(new XYChart.Data<String,Number>("Nepali",max.getNepali()));
+
+        XYChart.Series<String, Number> minseries = new XYChart.Series<String,Number>();
+        minseries.setName("Lowest");
+        minseries.getData().add(new XYChart.Data<String,Number>("Maths",min.getMaths()));
+        minseries.getData().add(new XYChart.Data<String,Number>("Science",min.getScience()));
+        minseries.getData().add(new XYChart.Data<String,Number>("Social",min.getSocial()));
+        minseries.getData().add(new XYChart.Data<String,Number>("English",min.getEnglish()));
+        minseries.getData().add(new XYChart.Data<String,Number>("Nepali",min.getNepali()));
+
+
 //        series1.getData().add(new XYChart.Data<String,Number>( "Test", 80));
-        bc.getData().add(series1);
-        bc.getData().add(series2);
-        bc.getData().add(series);
+        bc.getData().add(avgseries);
+        bc.getData().add(maxseries);
+        bc.getData().add(minseries);
+
         int total,fail,pass;
         float highest;
         try {

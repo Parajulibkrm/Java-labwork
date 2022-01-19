@@ -1,4 +1,4 @@
 package com.bikram.javafinal.Models;
 
-public class Average {
+public class GradeWiseData {
 }

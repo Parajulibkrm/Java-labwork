@@ -59,19 +59,19 @@
     -fx-text-fill: #e7e5e5;
 }
 .default-color0.chart-series-line { -fx-stroke: rgba(42,115,255,0.7) }
-.default-color1.chart-series-line { -fx-stroke: rgba(38,191,188,0.7) }
-.default-color2.chart-series-line { -fx-stroke: rgba(250,95,126,0.7) }
+.default-color2.chart-series-line { -fx-stroke: rgba(38,191,188,0.7) }
+.default-color1.chart-series-line { -fx-stroke: rgba(250,95,126,0.7) }
 .default-color3.chart-series-line { -fx-stroke: rgba(222,0,0,0.7) }
 
 
 .default-color0.chart-pie { -fx-stroke: rgba(42,115,255,0.7) }
-.default-color1.chart-pie { -fx-stroke: rgba(38,191,188,0.7) }
-.default-color2.chart-pie { -fx-stroke: rgba(250,95,126,0.7) }
+.default-color2.chart-pie { -fx-stroke: rgba(38,191,188,0.7) }
+.default-color1.chart-pie { -fx-stroke: rgba(250,95,126,0.7) }
 .default-color3.chart-pie { -fx-stroke: rgba(222,0,0,0.7) }
 
 .default-color0.chart-bar { -fx-bar-fill: rgba(42,115,255,0.7) }
-.default-color1.chart-bar { -fx-bar-fill: rgba(38,191,188,0.7) }
-.default-color2.chart-bar { -fx-bar-fill: rgba(250,95,126,0.7) }
+.default-color2.chart-bar { -fx-bar-fill: rgba(38,191,188,0.7) }
+.default-color1.chart-bar { -fx-bar-fill: rgba(250,95,126,0.7) }
 .default-color3.chart-bar { -fx-bar-fill: rgba(222,0,0,0.7) }
 
 .axis-label {

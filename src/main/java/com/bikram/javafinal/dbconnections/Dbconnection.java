@@ -1,5 +1,6 @@
 package com.bikram.javafinal.dbconnections;
 
+import com.bikram.javafinal.Models.SubjectWiseData;
 import com.bikram.javafinal.Models.LoginResult;
 import com.bikram.javafinal.Models.Students;
 import javafx.collections.FXCollections;
@@ -103,12 +104,28 @@ public class Dbconnection {
         return rs.getInt(1);
     }
 
-    // Get separate average marks of each subject
-    public static String getAverageMarks() throws Exception {
+    // Get separate average marks of each
+    // subject
+    public static SubjectWiseData getAverageMarks() throws Exception {
         String statement = "SELECT AVG(maths),AVG(science),AVG(social),AVG(english),AVG(nepali) FROM student";
         ResultSet rs = stm.executeQuery(statement);
         rs.next();
-        return rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getString(5);
+        System.out.println(rs.toString());
+        return new SubjectWiseData(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getInt(5));
+    }
+    public static SubjectWiseData getHighestMarks() throws Exception {
+        String statement = "SELECT MAX(maths),MAX(science),MAX(social),MAX(english),MAX(nepali) FROM student";
+        ResultSet rs = stm.executeQuery(statement);
+        rs.next();
+        System.out.println(rs.toString());
+        return new SubjectWiseData(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getInt(5));
+    }
+    public static SubjectWiseData getLowestMarks() throws Exception {
+        String statement = "SELECT MIN(maths),MIN(science),MIN(social),MIN(english),MIN(nepali) FROM student";
+        ResultSet rs = stm.executeQuery(statement);
+        rs.next();
+        System.out.println(rs.toString());
+        return new SubjectWiseData(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getInt(5));
     }
     // Number of students scoring A+, A, B+, B, C+, C and F Grade in maths
     public static String getMarks() throws Exception {
