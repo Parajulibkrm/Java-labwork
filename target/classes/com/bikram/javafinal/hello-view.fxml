@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="533.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bikram.javafinal.LoginController">
+   <TextArea fx:id="username" layoutX="166.0" layoutY="156.0" prefHeight="16.0" prefWidth="200.0" promptText="Username" />
+   <TextArea fx:id="password" layoutX="166.0" layoutY="205.0" prefHeight="16.0" prefWidth="200.0" promptText="Password" />
+   <Button layoutX="205.0" layoutY="308.0" mnemonicParsing="false" onAction="#onlogin" prefHeight="33.0" prefWidth="122.0" text="Login">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </Button>
+   <ImageView fitHeight="105.0" fitWidth="147.0" layoutX="214.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../../../assets/logo.png" />
+   </ImageView>
+   <Label layoutX="213.0" layoutY="377.0" prefHeight="18.0" prefWidth="105.0" text="\@Codekavya 2022." textAlignment="CENTER" textFill="#969595" />
+   <Hyperlink layoutX="162.0" layoutY="348.0" onAction="#onSignupClick" text="Don't have an account? Signup here" />
+   <Label fx:id="signinMessage" alignment="CENTER" layoutY="120.0" prefHeight="18.0" prefWidth="533.0" textFill="#7b7474" />
+</AnchorPane>

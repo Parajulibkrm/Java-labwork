@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bikram.javafinal.HomeController">
+    <children>
+        <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #05071F;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/Bikram-Parajuli.png" />
+                    </image>
+                    <VBox.margin>
+                        <Insets bottom="10.0" top="50.0" />
+                    </VBox.margin></ImageView>
+                <Label fx:id="loggedinUser" text="Hello User!" textFill="#e7e5e5">
+                    <VBox.margin>
+                        <Insets bottom="20.0" />
+                    </VBox.margin>
+                </Label>
+                <Button fx:id="btnOverview" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Overview" textFill="#e7e5e5">
+                    <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/icons8_Home_32px.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                </Button>
+                <Button fx:id="btnOrders" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Summary Charts">
+                    <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/icons8_Open_Envelope_32px.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                </Button>
+                <Button fx:id="btnAddStudent" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Add Student">
+                    <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/icons8_Person_32px.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                </Button>
+                <Button fx:id="btnMenus" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Menus">
+                    <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/icons8_Xbox_Menu_32px.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                </Button>
+                <Button fx:id="btnPackages" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Import/Export">
+                    <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/icons8_Box_32px.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                </Button>
+                <Button fx:id="btnSettings" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Settings">
+                    <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/icons8_Slider__32px.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                </Button>
+                <Button fx:id="btnSignout" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Sign Out">
+                    <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/icons8_Sign_Out_32px.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                </Button>
+            </children>
+        </VBox>
+        <StackPane layoutX="258.0" prefHeight="576.0" prefWidth="793.0" style="-fx-background-color: #02030A;">
+            <children>
+                <Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0" visible="false">
+                    <children>
+                        <TextField layoutX="590.0" layoutY="47.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
+                        <Label layoutX="57.0" layoutY="25.0" text="Student Overview" textFill="#e7e5e5">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT" layoutX="45.0" layoutY="72.0" prefHeight="92.0" prefWidth="661.0" spacing="50.0">
+                            <children>
+                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                    <children>
+                                        <Label alignment="CENTER" text="50" textFill="#2a73ff">
+                                            <font>
+                                                <Font name="System Bold" size="26.0" />
+                                            </font>
+                                        </Label>
+                                        <Label text="Total Students" textFill="#e7e5e5" />
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                    <children>
+                                        <Label text="51%" textFill="#26bfbc">
+                                            <font>
+                                                <Font name="System Bold" size="26.0" />
+                                            </font>
+                                        </Label>
+                                        <Label text="Total Passed" textFill="#e7e5e5" />
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                    <children>
+                                        <Label text="89%" textFill="#fa5f7e">
+                                            <font>
+                                                <Font name="System Bold" size="26.0" />
+                                            </font>
+                                        </Label>
+                                        <Label text="Highest Percent" textFill="#e7e5e5" />
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                    <children>
+                                        <Label text="49%" textFill="#de0000">
+                                            <font>
+                                                <Font name="System Bold" size="26.0" />
+                                            </font>
+                                        </Label>
+                                        <Label text="Total Failed" textFill="#e7e5e5" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="45.0" layoutY="178.0" prefHeight="42.0" prefWidth="712.0" spacing="30.0" style="-fx-background-color: #02030A;">
+                            <children>
+                                <Label layoutX="625.0" layoutY="22.0" prefHeight="18.0" prefWidth="23.0" text="Roll" textFill="#e7e5e5">
+
+                                </Label>
+                                <Label prefHeight="18.0" prefWidth="82.0" text="Student Name" textFill="#e7e5e5">
+                                </Label>
+                                <Label prefHeight="18.0" prefWidth="45.0" text="Maths" textFill="#e7e5e5">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Label>
+                                <Label prefHeight="18.0" prefWidth="53.0" text="Science" textFill="#e7e5e5">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Label>
+                        <Label layoutX="332.0" layoutY="22.0" prefHeight="18.0" prefWidth="51.0" text="Social" textFill="#e7e5e5" />
+                                <Label prefHeight="18.0" prefWidth="48.0" text="English" textFill="#e7e5e5">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Label>
+                                <Label prefHeight="18.0" prefWidth="46.0" text="Nepali" textFill="#e7e5e5">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Label>
+                        <Label layoutX="254.0" layoutY="22.0" prefHeight="18.0" prefWidth="45.0" text="Result" textFill="#e7e5e5" />
+                            </children>
+                        </HBox>
+                        <ScrollPane layoutX="14.0" layoutY="232.0" prefHeight="320.0" prefWidth="746.0" stylesheets="@style.css">
+                            <content>
+                                <VBox fx:id="pnItems" prefHeight="318.0" prefWidth="744.0" spacing="5.0" style="-fx-background-color: #02030A;">
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                        <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="749.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/icons8_Search_52px.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </Pane>
+                <Pane fx:id="pnlAddStudent" prefHeight="200.0" prefWidth="200.0">
+                    <TextField fx:id="name" layoutX="256.0" layoutY="144.0" prefHeight="35.0" prefWidth="316.0" promptText="Full Name" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
+                    <ImageView fitHeight="23.0" fitWidth="27.0" layoutX="222.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../images/icons8_Person_32px.png" />
+                        </image>
+                    </ImageView>
+                    <TextField fx:id="science" layoutX="256.0" layoutY="299.0" prefHeight="35.0" prefWidth="316.0" promptText="Science" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
+                    <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="222.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../images/icons8_Box_32px.png" />
+                        </image>
+                    </ImageView>
+                    <TextField fx:id="roll" layoutX="256.0" layoutY="195.0" prefHeight="35.0" prefWidth="316.0" promptText="Roll Number" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
+                    <ImageView fitHeight="18.0" fitWidth="23.0" layoutX="222.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../images/icons8_Search_52px.png" />
+                        </image>
+                    </ImageView>
+                    <TextField fx:id="english" layoutX="256.0" layoutY="398.0" prefHeight="35.0" prefWidth="316.0" promptText="English" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
+                    <ImageView fitHeight="18.0" fitWidth="23.0" layoutX="222.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../images/icons8_Box_32px.png" />
+                        </image>
+                    </ImageView>
+                    <TextField fx:id="social" layoutX="256.0" layoutY="348.0" prefHeight="35.0" prefWidth="316.0" promptText="Social" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
+                    <ImageView fitHeight="18.0" fitWidth="23.0" layoutX="222.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../images/icons8_Box_32px.png" />
+                        </image>
+                    </ImageView>
+                    <TextField fx:id="maths" layoutX="256.0" layoutY="246.0" prefHeight="35.0" prefWidth="316.0" promptText="Maths" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
+                    <ImageView fitHeight="18.0" fitWidth="23.0" layoutX="222.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../images/icons8_Box_32px.png" />
+                        </image>
+                    </ImageView>
+                    <TextField fx:id="nepali" layoutX="256.0" layoutY="444.0" prefHeight="35.0" prefWidth="316.0" promptText="Nepali" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
+                    <ImageView fitHeight="18.0" fitWidth="23.0" layoutX="222.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../images/icons8_Box_32px.png" />
+                        </image>
+                    </ImageView>
+               <Label alignment="CENTER" layoutX="312.0" layoutY="65.0" prefHeight="35.0" prefWidth="205.0" text="Add New Student" textFill="#e7e5e5">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Label>
+
+                    <Button layoutX="364.0" layoutY="509.0" mnemonicParsing="false" onAction="#handleSubmit" prefHeight="35.0" prefWidth="101.0" style="-fx-background-color: #2a73ff;" text="Submit" textFill="#fdfdfd" />
+                </Pane>
+<!--                <Pane fx:id="pnlOrders" prefHeight="200.0" prefWidth="200.0" visible="false" />-->
+<!--                <Pane fx:id="pnlMenus" prefHeight="200.0" prefWidth="200.0" visible="false" />-->
+            </children>
+        </StackPane>
+    </children>
+    <effect>
+        <DropShadow color="#1b1eeb" />
+    </effect>
+</AnchorPane>

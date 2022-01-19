@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox fx:id="itemC" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="695.0" spacing="30.0" style="-fx-background-color: #02030A; -fx-background-radius: 5; -fx-background-insets: 0;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bikram.javafinal.StudentItemController">
+    <children>
+        <ImageView fitHeight="31.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/icons8_GPS_Antenna_64px_1.png" />
+            </image>
+            <HBox.margin>
+                <Insets left="10.0" />
+            </HBox.margin>
+        </ImageView>
+        <Label fx:id="lroll" alignment="CENTER" layoutX="625.0" layoutY="22.0" prefHeight="18.0" prefWidth="23.0" text="Roll" textAlignment="CENTER" textFill="#e7e5e5">
+            <HBox.margin>
+                <Insets left="10.0" />
+            </HBox.margin>
+        </Label>
+        <Label fx:id="lname" alignment="CENTER" prefHeight="18.0" prefWidth="82.0" text="Student Name" textFill="#e7e5e5">
+        </Label>
+        <Label fx:id="lmaths" alignment="CENTER" prefHeight="18.0" prefWidth="45.0" text="Maths" textFill="#e7e5e5">
+            <HBox.margin>
+                <Insets />
+            </HBox.margin>
+        </Label>
+        <Label fx:id="lscience" alignment="CENTER" prefHeight="18.0" prefWidth="53.0" text="Science" textFill="#e7e5e5">
+            <HBox.margin>
+                <Insets />
+            </HBox.margin>
+        </Label>
+        <Label fx:id="lsocial" alignment="CENTER" layoutX="332.0" layoutY="22.0" prefHeight="18.0" prefWidth="51.0" text="Social" textFill="#e7e5e5" />
+        <Label fx:id="lenglish" alignment="CENTER" prefHeight="18.0" prefWidth="48.0" text="English" textFill="#e7e5e5">
+            <HBox.margin>
+                <Insets />
+            </HBox.margin>
+        </Label>
+        <Label fx:id="lnepali" alignment="CENTER" prefHeight="18.0" prefWidth="46.0" text="Nepali" textFill="#e7e5e5">
+        </Label>
+        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="10.0" prefWidth="50.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@style.css" text="Pass">
+        </Button>
+    </children>
+    <effect>
+        <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" width="5.0" />
+    </effect>
+</HBox>
