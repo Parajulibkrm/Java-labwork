@@ -1,5 +1,6 @@
 package com.bikram.javafinal;
 
+import com.bikram.javafinal.Models.CommandsHandler;
 import com.bikram.javafinal.dbconnections.Dbconnection;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -29,9 +30,13 @@ public class Application extends javafx.application.Application {
             public void run() {
                 Scanner myObj = new Scanner(System.in);
                 while(true){
-                    System.out.println("Enter name, age and salary:");
+                    System.out.println("\033[0;35m" +"Enter command:" + "\033[0m");
                     String name = myObj.nextLine();
-                    System.out.println(name);
+                    try {
+                        CommandsHandler.handleCmd(name);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }).start();

@@ -40,3 +40,14 @@
 .scroll-pane > .corner {
     -fx-background-color: black;
 }
+.chart {
+    -fx-padding: 10px;
+    -fx-background-color: #02030A;
+    -fx-legend-visible: false;
+}
+.chart-plot-background {
+    -fx-background-color:transparent;
+}
+.chart-title {
+  -fx-text-fill: #e7e5e5;
+}

@@ -52,7 +52,7 @@ public class HomeController implements Initializable {
     private Pane pnlAddStudent;
 
     @FXML
-    private Pane pnlOrders;
+    private Pane pnlBarChart;
 
     @FXML
     private Pane pnlOverview;
@@ -139,11 +139,14 @@ public class HomeController implements Initializable {
 //            pnlCustomer.setStyle("-fx-background-color : #1620A1");
             pnlAddStudent.setVisible(true);
             pnlOverview.setVisible(false);
+            pnlBarChart.setVisible(false);
             pnlAddStudent.toFront();
         }
         if (actionEvent.getSource() == btnMenus) {
-            pnlMenus.setStyle("-fx-background-color : #53639F");
-            pnlMenus.toFront();
+            pnlAddStudent.setVisible(false);
+            pnlOverview.setVisible(false);
+            pnlBarChart.setVisible(true);
+            pnlBarChart.toFront();
         }
         if (actionEvent.getSource() == btnOverview) {
 //            pnlOverview.setStyle("-fx-background-color : #02030A");
@@ -153,8 +156,8 @@ public class HomeController implements Initializable {
         }
         if(actionEvent.getSource()==btnOrders)
         {
-            pnlOrders.setStyle("-fx-background-color : #464F67");
-            pnlOrders.toFront();
+//            pnlBarChart.setStyle("-fx-background-color : #464F67");
+            pnlBarChart.toFront();
         }
     }
 }
