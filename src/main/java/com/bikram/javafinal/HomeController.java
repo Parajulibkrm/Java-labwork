@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.chart.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -26,6 +27,18 @@ public class HomeController implements Initializable {
 
     @FXML
     private Label loggedinUser;
+
+    @FXML
+    private Label totalStudent;
+
+    @FXML
+    private Label passPercent;
+
+    @FXML
+    private Label failed;
+
+    @FXML
+    private Label highestPercent;
 
     @FXML
     private Button btnOverview;
@@ -82,6 +95,13 @@ public class HomeController implements Initializable {
     private TextField nepali;
 
     @FXML
+    LineChart<String, Number> linechart;
+
+
+    @FXML
+    BarChart<String, Number> bc;
+
+    @FXML
     public void handleSubmit(ActionEvent e){
         Students s = new Students(Integer.parseInt("0"+roll.getText()),name.getText(),Integer.parseInt("0"+maths.getText()),Integer.parseInt("0"+science.getText()),Integer.parseInt("0"+social.getText()),Integer.parseInt("0"+english.getText()),Integer.parseInt("0"+nepali.getText()));
         try {
@@ -97,9 +117,11 @@ public class HomeController implements Initializable {
             ex.printStackTrace();
         }
     }
+    private void setData(){
+        pnItems.getChildren().clear();
+        linechart.getData().clear();
+        bc.getData().clear();
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
         loggedinUser.setText(AppConstants.getLoggedInUser());
         try {
             ObservableList<Students> studentList = Dbconnection.getAllStudents();
@@ -129,12 +151,77 @@ public class HomeController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        XYChart.Series<String,Number>series=new XYChart.Series<String,Number>();
+        series.setName("Maths");
+        series.getData().add(new XYChart.Data<String,Number>("Jan",200));
+        series.getData().add(new XYChart.Data<String,Number>("Feb",350));
+        series.getData().add(new XYChart.Data<String,Number>("March",420));
+        series.getData().add(new XYChart.Data<String,Number>("April",550));
+        XYChart.Series<String,Number>series1=new XYChart.Series<String,Number>();
+        series1.setName("Science");
+        series1.getData().add(new XYChart.Data<String,Number>("Jan",20));
+        series1.getData().add(new XYChart.Data<String,Number>("Feb",370));
+        series1.getData().add(new XYChart.Data<String,Number>("March",320));
+        series1.getData().add(new XYChart.Data<String,Number>("April",500));
+        XYChart.Series<String,Number>series2=new XYChart.Series<String,Number>();
+        series2.setName("Social");
+        series2.getData().add(new XYChart.Data<String,Number>("Jan",250));
+        series2.getData().add(new XYChart.Data<String,Number>("Feb",450));
+        series2.getData().add(new XYChart.Data<String,Number>("March",320));
+        series2.getData().add(new XYChart.Data<String,Number>("April",250));
 
+        linechart.getData().add(series);
+        linechart.getData().add(series1);
+        linechart.getData().add(series2);
 
+//        xAxis.setLabel("Percent");
+//        xAxis.setTickLabelRotation(90);
+//        yAxis.setLabel("Performance");
+//        xAxis.setLabel("Percent");
+//        xAxis.setTickLabelRotation(90);
+//        yAxis.setLabel("Performance");
+
+//        XYChart.Series<String, Number> series3 = new XYChart.Series<String,Number>();
+//        series1.getData().add(new XYChart.Data<String,Number>( "Test", 80));
+        bc.getData().add(series1);
+        bc.getData().add(series2);
+        bc.getData().add(series);
+        int total,fail,pass;
+        float highest;
+        try {
+            total = Dbconnection.getTotalStudents();
+        } catch (Exception e) {
+            total = 0;
+            e.printStackTrace();
+        }
+        try {
+            pass = (int)(( (float)Dbconnection.getTotalPassStudents() /(float) total)*100);
+            fail = total - Dbconnection.getTotalPassStudents();
+        } catch (Exception e) {
+            pass =0;
+            fail = 0;
+            e.printStackTrace();
+        }
+        try {
+            highest = ((float)Dbconnection.getHighestPercentage()/500)*100;
+        } catch (Exception e) {
+            highest = 0.0f;
+            e.printStackTrace();
+        }
+        totalStudent.setText(Integer.toString(total,10));
+        passPercent.setText(Integer.toString(pass) + "%");
+        failed.setText(Integer.toString(fail));
+        highestPercent.setText(Float.toString(highest));
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+    setData();
     }
 
 
     public void handleClicks(ActionEvent actionEvent) {
+        setData();
         if (actionEvent.getSource() == btnAddStudent) {
 //            pnlCustomer.setStyle("-fx-background-color : #1620A1");
             pnlAddStudent.setVisible(true);
@@ -152,6 +239,7 @@ public class HomeController implements Initializable {
 //            pnlOverview.setStyle("-fx-background-color : #02030A");
             pnlAddStudent.setVisible(false);
             pnlOverview.setVisible(true);
+            pnlBarChart.setVisible(false);
             pnlOverview.toFront();
         }
         if(actionEvent.getSource()==btnOrders)

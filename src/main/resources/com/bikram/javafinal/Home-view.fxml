@@ -118,7 +118,7 @@
         </VBox>
         <StackPane layoutX="258.0" prefHeight="576.0" prefWidth="793.0" style="-fx-background-color: #02030A;">
             <children>
-                <Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0" visible="false">
+                <Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0">
                     <children>
                         <TextField layoutX="590.0" layoutY="47.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
                         <Label layoutX="57.0" layoutY="25.0" text="Student Overview" textFill="#e7e5e5">
@@ -130,7 +130,7 @@
                             <children>
                                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                                     <children>
-                                        <Label alignment="CENTER" text="50" textFill="#2a73ff">
+                                        <Label fx:id="totalStudent" alignment="CENTER" text="50" textFill="#2a73ff">
                                             <font>
                                                 <Font name="System Bold" size="26.0" />
                                             </font>
@@ -140,7 +140,7 @@
                                 </VBox>
                                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                                     <children>
-                                        <Label text="51%" textFill="#26bfbc">
+                                        <Label fx:id="passPercent" text="51%" textFill="#26bfbc">
                                             <font>
                                                 <Font name="System Bold" size="26.0" />
                                             </font>
@@ -150,7 +150,7 @@
                                 </VBox>
                                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                                     <children>
-                                        <Label text="89%" textFill="#fa5f7e">
+                                        <Label fx:id="highestPercent" text="89%" textFill="#fa5f7e">
                                             <font>
                                                 <Font name="System Bold" size="26.0" />
                                             </font>
@@ -160,7 +160,7 @@
                                 </VBox>
                                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                                     <children>
-                                        <Label text="49%" textFill="#de0000">
+                                        <Label fx:id="failed" text="49%" textFill="#de0000">
                                             <font>
                                                 <Font name="System Bold" size="26.0" />
                                             </font>
@@ -268,9 +268,9 @@
 
                     <Button layoutX="364.0" layoutY="509.0" mnemonicParsing="false" onAction="#handleSubmit" prefHeight="35.0" prefWidth="101.0" style="-fx-background-color: #2a73ff;" text="Submit" textFill="#fdfdfd" />
                 </Pane>
-                <Pane fx:id="pnlBarChart" prefHeight="200.0" prefWidth="200.0">
+                <Pane fx:id="pnlBarChart" prefHeight="200.0" prefWidth="200.0" visible="false">
                <children>
-                  <LineChart alternativeRowFillVisible="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="35.0" layoutY="25.0" legendSide="TOP" prefHeight="284.0" prefWidth="689.0" style="-fx-background-color: #02030A;" stylesheets="@style.css" title="Average Marks of Students By Subject" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                  <LineChart fx:id="linechart" alternativeRowFillVisible="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="35.0" layoutY="25.0" legendSide="TOP" prefHeight="284.0" prefWidth="689.0" style="-fx-background-color: #02030A;" stylesheets="@style.css" title="Average Marks of Students By Subject" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>
@@ -278,7 +278,7 @@
                       <NumberAxis side="LEFT" />
                     </yAxis>
                   </LineChart>
-                  <BarChart alternativeRowFillVisible="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="36.0" layoutY="295.0" prefHeight="267.0" prefWidth="689.0" stylesheets="@style.css" title="Average Marks of Students By Students" verticalGridLinesVisible="false">
+                  <BarChart fx:id="bc" alternativeRowFillVisible="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="36.0" layoutY="295.0" prefHeight="267.0" prefWidth="689.0" stylesheets="@style.css" title="Average Marks of Students By Students" verticalGridLinesVisible="false">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>

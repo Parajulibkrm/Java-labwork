@@ -8,7 +8,7 @@ import javafx.collections.ObservableList;
 import  java.sql.*;
 
 public class Dbconnection {
-    Statement stm;
+    static Statement stm;
     static Connection conn;
 
 
@@ -80,4 +80,55 @@ public class Dbconnection {
         }
         return list;
     }
+
+    // Get Total Number of Students,
+    public static Integer getTotalStudents() throws Exception {
+        String statement = "SELECT COUNT(*) FROM student";
+        ResultSet rs = stm.executeQuery(statement);
+        rs.next();
+        return rs.getInt(1);
+    }
+    //  Total Pass students assuming pass marks 40
+    public static Integer getTotalPassStudents() throws Exception {
+        String statement = "SELECT COUNT(*) FROM student WHERE maths >= 40 AND science >= 40 AND social >= 40 AND english >= 40 AND nepali >= 40";
+        ResultSet rs = stm.executeQuery(statement);
+        rs.next();
+        return rs.getInt(1);
+    }
+    // Highest Percentage Scored
+    public static Integer getHighestPercentage() throws Exception {
+        String statement = "SELECT MAX(maths+science+social+english+nepali) FROM student";
+        ResultSet rs = stm.executeQuery(statement);
+        rs.next();
+        return rs.getInt(1);
+    }
+
+    // Get separate average marks of each subject
+    public static String getAverageMarks() throws Exception {
+        String statement = "SELECT AVG(maths),AVG(science),AVG(social),AVG(english),AVG(nepali) FROM student";
+        ResultSet rs = stm.executeQuery(statement);
+        rs.next();
+        return rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getString(5);
+    }
+    // Number of students scoring A+, A, B+, B, C+, C and F Grade in maths
+    public static String getMarks() throws Exception {
+        String statement = "SELECT COUNT(*) FROM student WHERE maths >= 80";
+        ResultSet rs = stm.executeQuery(statement);
+        rs.next();
+        String a = rs.getString(1);
+        statement = "SELECT COUNT(*) FROM student WHERE maths >= 70 AND maths < 80";
+        rs = stm.executeQuery(statement);
+        rs.next();
+        String b = rs.getString(1);
+        statement = "SELECT COUNT(*) FROM student WHERE maths >= 60 AND maths < 70";
+        rs = stm.executeQuery(statement);
+        rs.next();
+        String c = rs.getString(1);
+        statement = "SELECT COUNT(*) FROM student WHERE maths < 60";
+        rs = stm.executeQuery(statement);
+        rs.next();
+        String f = rs.getString(1);
+        return a+" "+b+" "+c+" "+f;
+    }
+
 }
