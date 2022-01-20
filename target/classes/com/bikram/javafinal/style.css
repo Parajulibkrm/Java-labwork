@@ -62,6 +62,12 @@
 .default-color2.chart-series-line { -fx-stroke: rgba(38,191,188,0.7) }
 .default-color1.chart-series-line { -fx-stroke: rgba(250,95,126,0.7) }
 .default-color3.chart-series-line { -fx-stroke: rgba(222,0,0,0.7) }
+.default-color4.chart-series-line { -fx-stroke: rgba(16,22,95,0.7) }
+.default-color0.chart-line-symbol { -fx-background-color: rgba(42,115,255,0.7), transparent; }
+.default-color2.chart-line-symbol { -fx-background-color: rgba(38,191,188,0.7), transparent; }
+.default-color1.chart-line-symbol { -fx-background-color: rgba(250,95,126,0.7), transparent; }
+.default-color3.chart-line-symbol { -fx-background-color: rgba(222,0,0,0.7), transparent; }
+.default-color4.chart-line-symbol { -fx-background-color: rgba(16,22,95,0.7), transparent; }
 
 
 .default-color0.chart-pie { -fx-stroke: rgba(42,115,255,0.7) }

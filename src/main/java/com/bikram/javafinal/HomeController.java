@@ -1,6 +1,7 @@
 package com.bikram.javafinal;
 
 import com.bikram.javafinal.Models.AppConstants;
+import com.bikram.javafinal.Models.GradeWiseData;
 import com.bikram.javafinal.Models.SubjectWiseData;
 import com.bikram.javafinal.Models.Students;
 import com.bikram.javafinal.dbconnections.Dbconnection;
@@ -156,6 +157,12 @@ public class HomeController implements Initializable {
         SubjectWiseData max;
         SubjectWiseData min;
 
+        GradeWiseData maths;
+        GradeWiseData science;
+        GradeWiseData social;
+        GradeWiseData english;
+        GradeWiseData nepali;
+
         try {
             avg= Dbconnection.getAverageMarks();
         } catch (Exception e) {
@@ -175,28 +182,108 @@ public class HomeController implements Initializable {
             e.printStackTrace();
         }
 
-        XYChart.Series<String,Number>series=new XYChart.Series<String,Number>();
-        series.setName("Maths");
-        series.getData().add(new XYChart.Data<String,Number>("Jan",200));
-        series.getData().add(new XYChart.Data<String,Number>("Feb",350));
-        series.getData().add(new XYChart.Data<String,Number>("March",420));
-        series.getData().add(new XYChart.Data<String,Number>("April",550));
-        XYChart.Series<String,Number>series1=new XYChart.Series<String,Number>();
-        series1.setName("Science");
-        series1.getData().add(new XYChart.Data<String,Number>("Jan",20));
-        series1.getData().add(new XYChart.Data<String,Number>("Feb",370));
-        series1.getData().add(new XYChart.Data<String,Number>("March",320));
-        series1.getData().add(new XYChart.Data<String,Number>("April",500));
-        XYChart.Series<String,Number>series2=new XYChart.Series<String,Number>();
-        series2.setName("Social");
-        series2.getData().add(new XYChart.Data<String,Number>("Jan",250));
-        series2.getData().add(new XYChart.Data<String,Number>("Feb",450));
-        series2.getData().add(new XYChart.Data<String,Number>("March",320));
-        series2.getData().add(new XYChart.Data<String,Number>("April",250));
+        try {
+            maths= Dbconnection.getGradeWiseMarks("Maths");
+        } catch (Exception e) {
+            maths = new GradeWiseData(0,0,0,0,0,0,0,0,0);
+            e.printStackTrace();
+        }
+        try {
+            science= Dbconnection.getGradeWiseMarks("Science");
+        } catch (Exception e) {
+            science = new GradeWiseData(0,0,0,0,0,0,0,0,0);
+            e.printStackTrace();
+        }
+        try {
+            social= Dbconnection.getGradeWiseMarks("Social");
+        } catch (Exception e) {
+            social = new GradeWiseData(0,0,0,0,0,0,0,0,0);
+            e.printStackTrace();
+        }
+        try {
+            english= Dbconnection.getGradeWiseMarks("English");
+        } catch (Exception e) {
+            english = new GradeWiseData(0,0,0,0,0,0,0,0,0);
+            e.printStackTrace();
+        }
+        try {
+            nepali= Dbconnection.getGradeWiseMarks("Nepali");
+        }
+        catch (Exception e) {
+            nepali = new GradeWiseData(0,0,0,0,0,0,0,0,0);
+            e.printStackTrace();
+        }
 
-        linechart.getData().add(series);
-        linechart.getData().add(series1);
-        linechart.getData().add(series2);
+
+        XYChart.Series<String,Number> gradeScience=new XYChart.Series<String,Number>();
+        gradeScience.setName("Science");
+        gradeScience.getData().add(new XYChart.Data<String, Number>("N",science.getN()));
+        gradeScience.getData().add(new XYChart.Data<String, Number>("E",science.getE()));
+        gradeScience.getData().add(new XYChart.Data<String, Number>("D",science.getD()));
+        gradeScience.getData().add(new XYChart.Data<String, Number>("C",science.getC()));
+        gradeScience.getData().add(new XYChart.Data<String, Number>("C+",science.getCp()));
+        gradeScience.getData().add(new XYChart.Data<String, Number>("B+",science.getBp()));
+        gradeScience.getData().add(new XYChart.Data<String, Number>("B",science.getB()));
+        gradeScience.getData().add(new XYChart.Data<String, Number>("A",science.getA()));
+        gradeScience.getData().add(new XYChart.Data<String, Number>("A+",science.getAp()));
+        linechart.getData().add(gradeScience);
+
+        XYChart.Series<String,Number> gradeMaths=new XYChart.Series<String,Number>();
+        gradeMaths.setName("Maths");
+        gradeMaths.getData().add(new XYChart.Data<String, Number>("N",maths.getN()));
+        gradeMaths.getData().add(new XYChart.Data<String, Number>("E",maths.getE()));
+        gradeMaths.getData().add(new XYChart.Data<String, Number>("D",maths.getD()));
+        gradeMaths.getData().add(new XYChart.Data<String, Number>("C",maths.getC()));
+        gradeMaths.getData().add(new XYChart.Data<String, Number>("C+",maths.getCp()));
+        gradeMaths.getData().add(new XYChart.Data<String, Number>("B+",maths.getBp()));
+        gradeMaths.getData().add(new XYChart.Data<String, Number>("B",maths.getB()));
+        gradeMaths.getData().add(new XYChart.Data<String, Number>("A",maths.getA()));
+        gradeMaths.getData().add(new XYChart.Data<String, Number>("A+",maths.getAp()));
+        linechart.getData().add(gradeMaths);
+
+        XYChart.Series<String,Number> gradeSocial=new XYChart.Series<String,Number>();
+        gradeSocial.setName("Social");
+        gradeSocial.getData().add(new XYChart.Data<String, Number>("N",social.getN()));
+        gradeSocial.getData().add(new XYChart.Data<String, Number>("E",social.getE()));
+        gradeSocial.getData().add(new XYChart.Data<String, Number>("D",social.getD()));
+        gradeSocial.getData().add(new XYChart.Data<String, Number>("C",social.getC()));
+        gradeSocial.getData().add(new XYChart.Data<String, Number>("C+",social.getCp()));
+        gradeSocial.getData().add(new XYChart.Data<String, Number>("B+",social.getBp()));
+        gradeSocial.getData().add(new XYChart.Data<String, Number>("B",social.getB()));
+        gradeSocial.getData().add(new XYChart.Data<String, Number>("A",social.getA()));
+        gradeSocial.getData().add(new XYChart.Data<String, Number>("A+",social.getAp()));
+        linechart.getData().add(gradeSocial);
+
+        XYChart.Series<String,Number> gradeEnglish=new XYChart.Series<String,Number>();
+        gradeEnglish.setName("English");
+        gradeEnglish.getData().add(new XYChart.Data<String, Number>("N",english.getN()));
+        gradeEnglish.getData().add(new XYChart.Data<String, Number>("E",english.getE()));
+        gradeEnglish.getData().add(new XYChart.Data<String, Number>("D",english.getD()));
+        gradeEnglish.getData().add(new XYChart.Data<String, Number>("C",english.getC()));
+        gradeEnglish.getData().add(new XYChart.Data<String, Number>("C+",english.getCp()));
+        gradeEnglish.getData().add(new XYChart.Data<String, Number>("B+",english.getBp()));
+        gradeEnglish.getData().add(new XYChart.Data<String, Number>("B",english.getB()));
+        gradeEnglish.getData().add(new XYChart.Data<String, Number>("A",english.getA()));
+        gradeEnglish.getData().add(new XYChart.Data<String, Number>("A+",english.getAp()));
+        linechart.getData().add(gradeEnglish);
+
+        XYChart.Series<String,Number> gradeNepali=new XYChart.Series<String,Number>();
+        gradeNepali.setName("Nepali");
+        gradeNepali.getData().add(new XYChart.Data<String, Number>("N",nepali.getN()));
+        gradeNepali.getData().add(new XYChart.Data<String, Number>("E",nepali.getE()));
+        gradeNepali.getData().add(new XYChart.Data<String, Number>("D",nepali.getD()));
+        gradeNepali.getData().add(new XYChart.Data<String, Number>("C",nepali.getC()));
+        gradeNepali.getData().add(new XYChart.Data<String, Number>("C+",nepali.getCp()));
+        gradeNepali.getData().add(new XYChart.Data<String, Number>("B+",nepali.getBp()));
+        gradeNepali.getData().add(new XYChart.Data<String, Number>("B",nepali.getB()));
+        gradeNepali.getData().add(new XYChart.Data<String, Number>("A",nepali.getA()));
+        gradeNepali.getData().add(new XYChart.Data<String, Number>("A+",nepali.getAp()));
+        linechart.getData().add(gradeNepali);
+
+
+//        linechart.getData().add(gradeMaths);
+//        linechart.getData().add(series1);
+//        linechart.getData().add(series2);
 
 //        xAxis.setLabel("Percent");
 //        xAxis.setTickLabelRotation(90);

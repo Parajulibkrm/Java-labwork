@@ -1,5 +1,6 @@
 package com.bikram.javafinal.dbconnections;
 
+import com.bikram.javafinal.Models.GradeWiseData;
 import com.bikram.javafinal.Models.SubjectWiseData;
 import com.bikram.javafinal.Models.LoginResult;
 import com.bikram.javafinal.Models.Students;
@@ -128,24 +129,45 @@ public class Dbconnection {
         return new SubjectWiseData(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getInt(5));
     }
     // Number of students scoring A+, A, B+, B, C+, C and F Grade in maths
-    public static String getMarks() throws Exception {
-        String statement = "SELECT COUNT(*) FROM student WHERE maths >= 80";
+    public static GradeWiseData getGradeWiseMarks(String sub) throws Exception {
+
+        String statement = "SELECT COUNT(*) FROM student WHERE "+sub+">= 90";
         ResultSet rs = stm.executeQuery(statement);
         rs.next();
-        String a = rs.getString(1);
-        statement = "SELECT COUNT(*) FROM student WHERE maths >= 70 AND maths < 80";
+        int ap = rs.getInt(1);
+        statement = "SELECT COUNT(*) FROM student WHERE "+sub+" >= 80 AND "+sub+"< 90";
         rs = stm.executeQuery(statement);
         rs.next();
-        String b = rs.getString(1);
-        statement = "SELECT COUNT(*) FROM student WHERE maths >= 60 AND maths < 70";
+        int a = rs.getInt(1);
+        statement = "SELECT COUNT(*) FROM student WHERE "+sub+" >= 70 AND "+sub+"< 80";
         rs = stm.executeQuery(statement);
         rs.next();
-        String c = rs.getString(1);
-        statement = "SELECT COUNT(*) FROM student WHERE maths < 60";
+        int bp = rs.getInt(1);
+        statement = "SELECT COUNT(*) FROM student WHERE "+sub+" >= 60 AND "+sub+"< 70";
         rs = stm.executeQuery(statement);
         rs.next();
-        String f = rs.getString(1);
-        return a+" "+b+" "+c+" "+f;
+        int b = rs.getInt(1);
+        statement = "SELECT COUNT(*) FROM student WHERE "+sub+" >= 50 AND "+sub+"< 60";
+        rs = stm.executeQuery(statement);
+        rs.next();
+        int cp = rs.getInt(1);
+        statement = "SELECT COUNT(*) FROM student WHERE "+sub+" >= 40 AND "+sub+"< 50";
+        rs = stm.executeQuery(statement);
+        rs.next();
+        int c = rs.getInt(1);
+        statement = "SELECT COUNT(*) FROM student WHERE "+sub+" >= 20 AND "+sub+"< 40";
+        rs = stm.executeQuery(statement);
+        rs.next();
+        int d = rs.getInt(1);
+        statement = "SELECT COUNT(*) FROM student WHERE "+sub+" >= 1 AND "+sub+"< 20";
+        rs = stm.executeQuery(statement);
+        rs.next();
+        int e = rs.getInt(1);
+        statement = "SELECT COUNT(*) FROM student WHERE "+sub+"<= 0";
+        rs = stm.executeQuery(statement);
+        rs.next();
+        int n = rs.getInt(1);
+        return new GradeWiseData(ap,a,bp,b,cp,c,d,e,n);
     }
 
 }
