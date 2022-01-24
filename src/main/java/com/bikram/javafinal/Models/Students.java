@@ -66,4 +66,12 @@ public class Students extends Human {
     public void setNepali(int nepali) {
         this.nepali = nepali;
     }
+
+
+    public void printData(){
+        System.out.println(roll + ". \t" + name + "\t"+ maths + "\t" + science + "\t" + social + "\t" + english + "\t" + nepali);
+    }
+    public boolean isPass() {
+        return maths >= 40 && science >= 40 && social >= 40 && english >= 40 && nepali >= 40;
+    }
 }

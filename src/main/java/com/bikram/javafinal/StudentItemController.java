@@ -23,6 +23,8 @@ public class StudentItemController {
 
     @FXML
     private Label lenglish;
+
+
     @FXML
     private Label lnepali;
 

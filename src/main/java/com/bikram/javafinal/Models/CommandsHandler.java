@@ -6,6 +6,7 @@ import java.io.IOException;
 
 public class CommandsHandler {
     public static void handleCmd(String s) throws IOException {
+        String error = "All available Commands are: \n cls \n help \n student";
         String[] cmd = s.split(" ");
         switch (cmd[0]) {
             case "cls":
@@ -13,12 +14,13 @@ public class CommandsHandler {
                 System.out.flush();
                 break;
             case "help":
-                System.out.println("All available Commands are: \n cls \n help \n student");
+                System.out.println(error);
                 break;
             case "student":
                 StudentCmd.run(cmd);
                 break;
             default:
+                System.out.println("Invalid command ! \n"+ error );
                 break;
         }
     }

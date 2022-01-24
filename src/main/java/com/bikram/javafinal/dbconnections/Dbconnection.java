@@ -82,6 +82,15 @@ public class Dbconnection {
         }
         return list;
     }
+    public static Students getStudent( int roll) throws Exception {
+        Statement st = conn.createStatement();
+        String statement = "SELECT * FROM student where roll= " + Integer.toString(roll);
+        ResultSet rs = st.executeQuery(statement);
+        if (rs.next()) {
+            return new Students(rs.getInt("roll"),rs.getString("name"),rs.getInt("maths"),rs.getInt("science"),rs.getInt("social"),rs.getInt("english"),rs.getInt("nepali"));
+        } else return  null;
+    }
+
 
     // Get Total Number of Students,
     public static Integer getTotalStudents() throws Exception {

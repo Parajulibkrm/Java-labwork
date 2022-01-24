@@ -281,17 +281,6 @@ public class HomeController implements Initializable {
         linechart.getData().add(gradeNepali);
 
 
-//        linechart.getData().add(gradeMaths);
-//        linechart.getData().add(series1);
-//        linechart.getData().add(series2);
-
-//        xAxis.setLabel("Percent");
-//        xAxis.setTickLabelRotation(90);
-//        yAxis.setLabel("Performance");
-//        xAxis.setLabel("Percent");
-//        xAxis.setTickLabelRotation(90);
-//        yAxis.setLabel("Performance");
-
         XYChart.Series<String, Number> avgseries = new XYChart.Series<String,Number>();
         avgseries.setName("Average");
         avgseries.getData().add(new XYChart.Data<String,Number>("Maths",avg.getMaths()));
