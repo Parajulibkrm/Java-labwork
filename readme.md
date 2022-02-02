@@ -14,7 +14,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Parajulibkrm/Java-labwork">
-    <img src="images/Logo.png" alt="Logo" width="120" height="120">
+    <img src="images/logo.png" alt="Logo" width="120" height="120">
   </a>
 
 <h3 align="center">Kakshya RMS</h3>
