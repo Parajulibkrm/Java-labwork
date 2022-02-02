@@ -13,7 +13,7 @@
             </ImageView>
             <TextField fx:id="username" layoutX="27.0" layoutY="282.0" prefHeight="16.0" prefWidth="200.0" promptText="Username" style="-fx-background-color: #05071F; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
             <PasswordField fx:id="password" layoutX="28.0" layoutY="326.0" prefHeight="16.0" prefWidth="200.0" promptText="Password" style="-fx-background-color: #05071F; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
-            <Label layoutX="78.0" layoutY="460.0" prefHeight="18.0" prefWidth="105.0" text="\@Codekavya 2022." textAlignment="CENTER" textFill="#969595" />
+            <Label layoutX="78.0" layoutY="460.0" prefHeight="18.0" prefWidth="105.0" text="\@kakshya 2022." textAlignment="CENTER" textFill="#969595" />
             <Button layoutX="70.0" layoutY="391.0" mnemonicParsing="false" onAction="#onSignUp" prefHeight="33.0" prefWidth="122.0" style="-fx-background-color: #2a73ff;" text="Signup" textFill="#fdfdfd">
                 <font>
                     <Font size="15.0" />
@@ -25,12 +25,12 @@
             <ImageView fitHeight="420.0" fitWidth="415.0" layoutX="593.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@../../../assets/web.png" />
             </ImageView>
-            <Label layoutX="280.0" layoutY="217.0" prefHeight="35.0" prefWidth="326.0" text="Welcome to Codekavya RMS," textFill="#e7e5e5">
+            <Label layoutX="280.0" layoutY="217.0" prefHeight="35.0" prefWidth="326.0" text="Welcome to Kakshya RMS," textFill="#e7e5e5">
                 <font>
                     <Font size="24.0" />
                 </font>
             </Label>
-            <Label layoutX="280.0" layoutY="236.0" prefHeight="141.0" prefWidth="279.0" text="Codekavya Result Management system is a technical demo application built on java to cover the application of the topics taught in Programming in Java Course." textFill="#e7e5e5" wrapText="true">
+            <Label layoutX="280.0" layoutY="236.0" prefHeight="141.0" prefWidth="279.0" text="Kakshya Result Management system is a technical demo application built on java to cover the application of the topics taught in Programming in Java Course." textFill="#e7e5e5" wrapText="true">
                 <font>
                     <Font size="13.0" />
                 </font>

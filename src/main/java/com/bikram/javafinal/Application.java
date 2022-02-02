@@ -19,7 +19,7 @@ public class Application extends javafx.application.Application {
         stage.getIcons().add(new Image("file:G:\\WorkingDirec\\JavaFinal\\src\\main\\resources\\assets\\logo.png"));
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Codekavya RMS");
+        stage.setTitle("Kakshya RMS");
         stage.setScene(scene);
         stage.show();
         stage.setResizable(false);

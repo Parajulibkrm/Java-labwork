@@ -1,7 +1,7 @@
 package com.bikram.javafinal.Models;
 
 public class Human {
-    static String school = "Codekavya School";
+    static String school = "Kakshya School";
     protected String name;
 
     public String getName() {

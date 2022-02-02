@@ -118,7 +118,7 @@
         </VBox>
         <StackPane layoutX="258.0" prefHeight="576.0" prefWidth="793.0" style="-fx-background-color: #02030A;">
             <children>
-                <Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0" visible="false">
+                <Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0">
                     <children>
                         <TextField layoutX="590.0" layoutY="47.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
                         <Label layoutX="57.0" layoutY="25.0" text="Student Overview" textFill="#e7e5e5">
@@ -307,7 +307,7 @@
                   </Label>
                   <Button layoutX="694.0" layoutY="310.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="94.0" style="-fx-background-color: #2a73ff;" text="Choose" textFill="#fdfdfd" />
                </children></Pane>
-                <Pane prefHeight="200.0" prefWidth="200.0">
+                <Pane fx:id="pnlMenus" prefHeight="200.0" prefWidth="200.0" visible="false">
                     <Button layoutX="403.0" layoutY="123.0" mnemonicParsing="false" onAction="#launchAwt" prefHeight="35.0" prefWidth="94.0" style="-fx-background-color: #2a73ff;" text="Launch AWT" textFill="#fdfdfd" />
                 </Pane>
             </children>

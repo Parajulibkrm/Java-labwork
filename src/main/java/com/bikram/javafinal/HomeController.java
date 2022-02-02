@@ -400,7 +400,9 @@ public class HomeController implements Initializable {
             pnlOverview.setVisible(false);
             pnlBarChart.setVisible(false);
             pnlImportExport.setVisible(false);
+            pnlMenus.setVisible(false);
             pnlAddStudent.toFront();
+
         }
         if (actionEvent.getSource() == btnOverview) {
 //            pnlOverview.setStyle("-fx-background-color : #02030A");
@@ -408,6 +410,7 @@ public class HomeController implements Initializable {
             pnlOverview.setVisible(true);
             pnlImportExport.setVisible(false);
             pnlBarChart.setVisible(false);
+            pnlMenus.setVisible(false);
             pnlOverview.toFront();
         }
         if(actionEvent.getSource()== btnCharts)
@@ -416,6 +419,7 @@ public class HomeController implements Initializable {
             pnlOverview.setVisible(false);
             pnlImportExport.setVisible(false);
             pnlBarChart.setVisible(true);
+            pnlMenus.setVisible(false);
             pnlBarChart.toFront();
         }
         if(actionEvent.getSource()== btnImportExport){
@@ -423,7 +427,16 @@ public class HomeController implements Initializable {
             pnlAddStudent.setVisible(false);
             pnlOverview.setVisible(false);
             pnlBarChart.setVisible(false);
+            pnlMenus.setVisible(false);
             pnlImportExport.toFront();
+        }
+        if(actionEvent.getSource()== btnMenus){
+            pnlMenus.setVisible(true);
+            pnlImportExport.setVisible(false);
+            pnlAddStudent.setVisible(false);
+            pnlOverview.setVisible(false);
+            pnlBarChart.setVisible(false);
+            pnlMenus.toFront();
         }
     }
 }
