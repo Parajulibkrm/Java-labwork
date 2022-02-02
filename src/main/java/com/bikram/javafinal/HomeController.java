@@ -1,9 +1,6 @@
 package com.bikram.javafinal;
 
-import com.bikram.javafinal.Models.AppConstants;
-import com.bikram.javafinal.Models.GradeWiseData;
-import com.bikram.javafinal.Models.SubjectWiseData;
-import com.bikram.javafinal.Models.Students;
+import com.bikram.javafinal.Models.*;
 import com.bikram.javafinal.dbconnections.Dbconnection;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -46,7 +43,7 @@ public class HomeController implements Initializable {
     private Button btnOverview;
 
     @FXML
-    private Button btnOrders;
+    private Button btnCharts;
 
     @FXML
     private Button btnAddStudent;
@@ -116,7 +113,7 @@ public class HomeController implements Initializable {
             english.setText("");
             nepali.setText("");
         } catch (Exception ex) {
-            ex.printStackTrace();
+            System.out.println("Error with handling submit. " + ex.getMessage());
         }
     }
     private void setData(){
@@ -147,11 +144,11 @@ public class HomeController implements Initializable {
                     });
                     pnItems.getChildren().add(nodes[i]);
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    System.out.println("Error with creating student list. " + e.getMessage());
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error with fetching student list. " + e.getMessage());
         }
         SubjectWiseData avg;
         SubjectWiseData max;
@@ -167,51 +164,51 @@ public class HomeController implements Initializable {
             avg= Dbconnection.getAverageMarks();
         } catch (Exception e) {
             avg = new SubjectWiseData(0,0,0,0,0);
-            e.printStackTrace();
+            System.out.println("Error with fetching average marks. " + e.getMessage());
         }
         try {
             max= Dbconnection.getHighestMarks();
         } catch (Exception e) {
             max = new SubjectWiseData(0,0,0,0,0);
-            e.printStackTrace();
+            System.out.println("Error with fetching highest marks. " + e.getMessage());
         }
         try {
             min= Dbconnection.getLowestMarks();
         } catch (Exception e) {
             min = new SubjectWiseData(0,0,0,0,0);
-            e.printStackTrace();
+            System.out.println("Error with fetching lowest marks. " + e.getMessage());
         }
 
         try {
             maths= Dbconnection.getGradeWiseMarks("Maths");
         } catch (Exception e) {
             maths = new GradeWiseData(0,0,0,0,0,0,0,0,0);
-            e.printStackTrace();
+            System.out.println("Error with fetching maths grade marks. " + e.getMessage());
         }
         try {
             science= Dbconnection.getGradeWiseMarks("Science");
         } catch (Exception e) {
             science = new GradeWiseData(0,0,0,0,0,0,0,0,0);
-            e.printStackTrace();
+            System.out.println("Error with fetching science grade marks. " + e.getMessage());
         }
         try {
             social= Dbconnection.getGradeWiseMarks("Social");
         } catch (Exception e) {
             social = new GradeWiseData(0,0,0,0,0,0,0,0,0);
-            e.printStackTrace();
+            System.out.println("Error with fetching social grade marks. " + e.getMessage());
         }
         try {
             english= Dbconnection.getGradeWiseMarks("English");
         } catch (Exception e) {
             english = new GradeWiseData(0,0,0,0,0,0,0,0,0);
-            e.printStackTrace();
+            System.out.println("Error with fetching english grade marks. " + e.getMessage());
         }
         try {
             nepali= Dbconnection.getGradeWiseMarks("Nepali");
         }
         catch (Exception e) {
             nepali = new GradeWiseData(0,0,0,0,0,0,0,0,0);
-            e.printStackTrace();
+            System.out.println("Error with fetching nepali grade marks. " + e.getMessage());
         }
 
 
@@ -317,7 +314,7 @@ public class HomeController implements Initializable {
             total = Dbconnection.getTotalStudents();
         } catch (Exception e) {
             total = 0;
-            e.printStackTrace();
+            System.out.println("Error in getting total students" + e.getMessage());
         }
         try {
             pass = (int)(( (float)Dbconnection.getTotalPassStudents() /(float) total)*100);
@@ -325,13 +322,13 @@ public class HomeController implements Initializable {
         } catch (Exception e) {
             pass =0;
             fail = 0;
-            e.printStackTrace();
+            System.out.println("Error in getting pass students" + e.getMessage());
         }
         try {
             highest = ((float)Dbconnection.getHighestPercentage()/500)*100;
         } catch (Exception e) {
             highest = 0.0f;
-            e.printStackTrace();
+            System.out.println("Error in getting highest percentage" + e.getMessage());
         }
         totalStudent.setText(Integer.toString(total,10));
         passPercent.setText(Integer.toString(pass) + "%");
@@ -355,10 +352,8 @@ public class HomeController implements Initializable {
             pnlAddStudent.toFront();
         }
         if (actionEvent.getSource() == btnMenus) {
-            pnlAddStudent.setVisible(false);
-            pnlOverview.setVisible(false);
-            pnlBarChart.setVisible(true);
             pnlBarChart.toFront();
+
         }
         if (actionEvent.getSource() == btnOverview) {
 //            pnlOverview.setStyle("-fx-background-color : #02030A");
@@ -367,10 +362,16 @@ public class HomeController implements Initializable {
             pnlBarChart.setVisible(false);
             pnlOverview.toFront();
         }
-        if(actionEvent.getSource()==btnOrders)
+        if(actionEvent.getSource()== btnCharts)
         {
-//            pnlBarChart.setStyle("-fx-background-color : #464F67");
+            pnlAddStudent.setVisible(false);
+            pnlOverview.setVisible(false);
+            pnlBarChart.setVisible(true);
             pnlBarChart.toFront();
+        }
+        if(actionEvent.getSource()==btnPackages){
+            System.out.println("Packages");
+            AWTExample awtExample = new AWTExample();
         }
     }
 }

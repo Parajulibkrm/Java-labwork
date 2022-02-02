@@ -8,6 +8,7 @@ module com.bikram.javafinal {
     requires validatorfx;
     requires eu.hansolo.tilesfx;
     requires mysql.connector;
+    requires java.desktop;
     opens com.bikram.javafinal to javafx.fxml;
     exports com.bikram.javafinal;
     exports com.bikram.javafinal.Models;

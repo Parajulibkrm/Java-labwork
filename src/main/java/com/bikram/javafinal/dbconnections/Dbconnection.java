@@ -23,8 +23,7 @@ public class Dbconnection {
             stm = conn.createStatement();
             System.out.println("Connected");
         } catch (Exception e){
-            System.out.println("cannot connect");
-            e.printStackTrace();
+            System.out.println("Error while connecting to database. " + e.getMessage());
         }
     }
     public static LoginResult login(String username, String password) {
@@ -38,7 +37,7 @@ public class Dbconnection {
                 return new LoginResult(true,rs.getString("name"));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("Error with login. " + e.getMessage());
             return new LoginResult(false);
         }
         return  new LoginResult(false);
@@ -120,21 +119,18 @@ public class Dbconnection {
         String statement = "SELECT AVG(maths),AVG(science),AVG(social),AVG(english),AVG(nepali) FROM student";
         ResultSet rs = stm.executeQuery(statement);
         rs.next();
-        System.out.println(rs.toString());
         return new SubjectWiseData(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getInt(5));
     }
     public static SubjectWiseData getHighestMarks() throws Exception {
         String statement = "SELECT MAX(maths),MAX(science),MAX(social),MAX(english),MAX(nepali) FROM student";
         ResultSet rs = stm.executeQuery(statement);
         rs.next();
-        System.out.println(rs.toString());
         return new SubjectWiseData(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getInt(5));
     }
     public static SubjectWiseData getLowestMarks() throws Exception {
         String statement = "SELECT MIN(maths),MIN(science),MIN(social),MIN(english),MIN(nepali) FROM student";
         ResultSet rs = stm.executeQuery(statement);
         rs.next();
-        System.out.println(rs.toString());
         return new SubjectWiseData(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getInt(5));
     }
     // Number of students scoring A+, A, B+, B, C+, C and F Grade in maths

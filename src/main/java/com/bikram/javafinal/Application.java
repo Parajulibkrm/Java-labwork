@@ -5,7 +5,6 @@ import com.bikram.javafinal.dbconnections.Dbconnection;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -23,7 +22,7 @@ public class Application extends javafx.application.Application {
         try {
             db.connect();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error with connecting to db. " + e.getMessage());
         }
         new Thread(new Runnable() {
             @Override
@@ -31,11 +30,15 @@ public class Application extends javafx.application.Application {
                 Scanner myObj = new Scanner(System.in);
                 while(true){
                     System.out.println("\033[0;35m" +"Enter command:" + "\033[0m");
-                    String name = myObj.nextLine();
+                    String cmd = myObj.nextLine();
+                    if(cmd.equals("exit")){
+                        System.exit(0);
+                    }
+
                     try {
-                        CommandsHandler.handleCmd(name);
+                        CommandsHandler.handleCmd(cmd);
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        System.out.println("Error with handling command. " + e.getMessage());
                     }
                 }
             }
@@ -44,6 +47,5 @@ public class Application extends javafx.application.Application {
 
     public static void main(String[] args) {
         launch();
-
     }
 }

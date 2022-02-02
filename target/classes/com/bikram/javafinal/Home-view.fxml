@@ -42,7 +42,7 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button fx:id="btnOrders" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Summary Charts">
+                <Button fx:id="btnCharts" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Summary Charts">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -78,7 +78,7 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button fx:id="btnPackages" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Import/Export">
+                <Button fx:id="btnPackages" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Import/Export">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -224,20 +224,20 @@
                             <Image url="@../images/icons8_Person_32px.png" />
                         </image>
                     </ImageView>
-                    <TextField fx:id="science" layoutX="256.0" layoutY="299.0" prefHeight="35.0" prefWidth="316.0" promptText="Science" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
-                    <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="222.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../images/icons8_Box_32px.png" />
-                        </image>
-                    </ImageView>
                     <TextField fx:id="roll" layoutX="256.0" layoutY="195.0" prefHeight="35.0" prefWidth="316.0" promptText="Roll Number" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
                     <ImageView fitHeight="18.0" fitWidth="23.0" layoutX="222.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
                         <image>
                             <Image url="@../images/icons8_Search_52px.png" />
                         </image>
                     </ImageView>
-                    <TextField fx:id="english" layoutX="256.0" layoutY="398.0" prefHeight="35.0" prefWidth="316.0" promptText="English" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
-                    <ImageView fitHeight="18.0" fitWidth="23.0" layoutX="222.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
+                    <TextField fx:id="maths" layoutX="256.0" layoutY="246.0" prefHeight="35.0" prefWidth="316.0" promptText="Maths" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
+                    <ImageView fitHeight="18.0" fitWidth="23.0" layoutX="222.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../images/icons8_Box_32px.png" />
+                        </image>
+                    </ImageView>
+                    <TextField fx:id="science" layoutX="256.0" layoutY="299.0" prefHeight="35.0" prefWidth="316.0" promptText="Science" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
+                    <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="222.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
                         <image>
                             <Image url="@../images/icons8_Box_32px.png" />
                         </image>
@@ -248,12 +248,14 @@
                             <Image url="@../images/icons8_Box_32px.png" />
                         </image>
                     </ImageView>
-                    <TextField fx:id="maths" layoutX="256.0" layoutY="246.0" prefHeight="35.0" prefWidth="316.0" promptText="Maths" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
-                    <ImageView fitHeight="18.0" fitWidth="23.0" layoutX="222.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+                    <TextField fx:id="english" layoutX="256.0" layoutY="398.0" prefHeight="35.0" prefWidth="316.0" promptText="English" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
+                    <ImageView fitHeight="18.0" fitWidth="23.0" layoutX="222.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
                         <image>
                             <Image url="@../images/icons8_Box_32px.png" />
                         </image>
                     </ImageView>
+
+
                     <TextField fx:id="nepali" layoutX="256.0" layoutY="444.0" prefHeight="35.0" prefWidth="316.0" promptText="Nepali" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
                     <ImageView fitHeight="18.0" fitWidth="23.0" layoutX="222.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
                         <image>

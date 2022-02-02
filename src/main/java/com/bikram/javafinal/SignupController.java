@@ -44,7 +44,7 @@ public class SignupController implements Initializable {
         } catch (Exception e) {
             AppConstants.setSignUpMessage("Signup Failed!");
             signupMessage.setText(AppConstants.getSignUpMessage());
-            e.printStackTrace();
+            System.out.println("Error with creating account. " + e.getMessage());
         }
     }
     @FXML
