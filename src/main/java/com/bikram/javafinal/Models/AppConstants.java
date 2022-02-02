@@ -1,9 +1,12 @@
 package com.bikram.javafinal.Models;
 
+import javafx.stage.Stage;
+
 public class AppConstants {
     public static String loggedInUser = null;
     public static String signInMessage = null;
     public static String signUpMessage = null;
+    public static Stage st = null;
 
     public static String getLoggedInUser() {
         return loggedInUser;
@@ -27,5 +30,13 @@ public class AppConstants {
 
     public static void setSignUpMessage(String signUpMessage) {
         AppConstants.signUpMessage = signUpMessage;
+    }
+
+    public static Stage getSt() {
+        return st;
+    }
+
+    public static void setSt(Stage st) {
+        AppConstants.st = st;
     }
 }

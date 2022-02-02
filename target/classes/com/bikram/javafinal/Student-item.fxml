@@ -41,7 +41,7 @@
         </Label>
         <Label fx:id="lnepali" alignment="CENTER" prefHeight="18.0" prefWidth="46.0" text="Nepali" textFill="#e7e5e5">
         </Label>
-        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="10.0" prefWidth="50.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@style.css" text="Pass">
+        <Button fx:id="lResult" alignment="CENTER" mnemonicParsing="false" prefHeight="10.0" prefWidth="50.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@style.css" text="Pass">
         </Button>
     </children>
     <effect>

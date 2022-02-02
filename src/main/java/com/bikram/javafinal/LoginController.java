@@ -10,7 +10,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,9 +23,9 @@ public class LoginController implements Initializable {
     @FXML
     private Label signinMessage;
     @FXML
-    private TextArea username;
+    private TextField username;
     @FXML
-    private TextArea password;
+    private PasswordField password;
 
     @FXML
     protected  void onlogin(ActionEvent e) throws  IOException {
@@ -50,7 +52,6 @@ public class LoginController implements Initializable {
         Scene oldSignin = ((Node)e.getSource()).getScene();
         Stage stage = (Stage) (oldSignin.getWindow());
         stage.setScene(signupScene);
-        System.out.println("Welcome to JavaFX Application!");
     }
 
     @Override

@@ -29,12 +29,15 @@ public class CommandsHandler {
                     public void run() {
                         while (true) {
                             String message = null;
+
                             try {
                                 message = (String) dis.readUTF();
+                                System.out.println(message);
                             } catch (IOException e) {
-                                System.out.println("invalid message");
+                                return;
+
                             }
-                            System.out.println(message);
+
                         }
                     }
                 });

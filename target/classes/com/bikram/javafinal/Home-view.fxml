@@ -78,7 +78,7 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button fx:id="btnPackages" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Import/Export">
+                <Button fx:id="btnImportExport" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Import/Export">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -118,7 +118,7 @@
         </VBox>
         <StackPane layoutX="258.0" prefHeight="576.0" prefWidth="793.0" style="-fx-background-color: #02030A;">
             <children>
-                <Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0">
+                <Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0" visible="false">
                     <children>
                         <TextField layoutX="590.0" layoutY="47.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
                         <Label layoutX="57.0" layoutY="25.0" text="Student Overview" textFill="#e7e5e5">
@@ -289,7 +289,27 @@
                     </yAxis>
                   </BarChart>
                </children></Pane>
-<!--                <Pane fx:id="pnlMenus" prefHeight="200.0" prefWidth="200.0" visible="false" />-->
+                <Pane fx:id="pnlImportExport" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <children>
+                  <PieChart fx:id="piechart" layoutX="2.0" layoutY="4.0" prefHeight="569.0" prefWidth="404.0" stylesheets="@style.css" title="Pie Chart Example" />
+                   <TextField fx:id="importPicker" editable="false" layoutX="469.0" layoutY="204.0" onMouseClicked="#chooseFile" prefHeight="35.0" prefWidth="222.0" promptText="Choose the file to import" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
+                  <Label alignment="BOTTOM_LEFT" layoutX="478.0" layoutY="155.0" prefHeight="35.0" prefWidth="205.0" text="Import" textFill="#e7e5e5">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="694.0" layoutY="204.0" mnemonicParsing="false" onAction="#chooseFile" prefHeight="35.0" prefWidth="94.0" style="-fx-background-color: #2a73ff;" text="Choose" textFill="#fdfdfd" />
+                  <TextField fx:id="exportPicker" layoutX="469.0" layoutY="310.0" onMouseClicked="#chooseFile" prefHeight="35.0" prefWidth="222.0" promptText="Choose location to save file" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
+                  <Label alignment="BOTTOM_LEFT" layoutX="477.0" layoutY="266.0" prefHeight="35.0" prefWidth="205.0" text="Export" textFill="#e7e5e5">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="694.0" layoutY="310.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="94.0" style="-fx-background-color: #2a73ff;" text="Choose" textFill="#fdfdfd" />
+               </children></Pane>
+                <Pane prefHeight="200.0" prefWidth="200.0">
+                    <Button layoutX="403.0" layoutY="123.0" mnemonicParsing="false" onAction="#launchAwt" prefHeight="35.0" prefWidth="94.0" style="-fx-background-color: #2a73ff;" text="Launch AWT" textFill="#fdfdfd" />
+                </Pane>
             </children>
         </StackPane>
     </children>

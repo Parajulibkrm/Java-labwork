@@ -5,18 +5,35 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="533.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bikram.javafinal.LoginController">
-   <TextArea fx:id="username" layoutX="166.0" layoutY="156.0" prefHeight="16.0" prefWidth="200.0" promptText="Username" />
-   <TextArea fx:id="password" layoutX="166.0" layoutY="205.0" prefHeight="16.0" prefWidth="200.0" promptText="Password" />
-   <Button layoutX="205.0" layoutY="308.0" mnemonicParsing="false" onAction="#onlogin" prefHeight="33.0" prefWidth="122.0" text="Login">
-      <font>
-         <Font size="15.0" />
-      </font>
-   </Button>
-   <ImageView fitHeight="105.0" fitWidth="147.0" layoutX="214.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@../../../assets/logo.png" />
+<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bikram.javafinal.LoginController">
+   <Pane prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #05071F;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+         <TextField fx:id="username" layoutX="31.0" layoutY="239.0" prefHeight="16.0" prefWidth="200.0" promptText="Username" style="-fx-background-color: #05071F; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
+         <PasswordField fx:id="password" layoutX="31.0" layoutY="288.0" prefHeight="16.0" prefWidth="200.0" promptText="Password" style="-fx-background-color: #05071F; -fx-border-color: #B7C3D7; -fx-border-radius: 0.5em; -fx-text-fill: white;" />
+         <Button layoutX="70.0" layoutY="391.0" mnemonicParsing="false" onAction="#onlogin" prefHeight="33.0" prefWidth="122.0" style="-fx-background-color: #2a73ff;" text="Login" textFill="#fdfdfd">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Button>
+         <Label layoutX="78.0" layoutY="460.0" prefHeight="18.0" prefWidth="105.0" text="\@Codekavya 2022." textAlignment="CENTER" textFill="#969595" />
+         <ImageView fitHeight="105.0" fitWidth="147.0" layoutX="79.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../../assets/logo.png" />
+         </ImageView>
+         <Label fx:id="signinMessage" alignment="CENTER" layoutY="120.0" prefHeight="18.0" prefWidth="533.0" textFill="#7b7474" />
+         <Hyperlink layoutX="27.0" layoutY="431.0" onAction="#onSignupClick" text="Don't have an account? Signup here" />
+      </children>
+   </Pane>
+   <ImageView fitHeight="420.0" fitWidth="415.0" layoutX="593.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../../../assets/web.png" />
    </ImageView>
-   <Label layoutX="213.0" layoutY="377.0" prefHeight="18.0" prefWidth="105.0" text="\@Codekavya 2022." textAlignment="CENTER" textFill="#969595" />
-   <Hyperlink layoutX="162.0" layoutY="348.0" onAction="#onSignupClick" text="Don't have an account? Signup here" />
-   <Label fx:id="signinMessage" alignment="CENTER" layoutY="120.0" prefHeight="18.0" prefWidth="533.0" textFill="#7b7474" />
+   <Label layoutX="280.0" layoutY="217.0" prefHeight="35.0" prefWidth="326.0" text="Welcome to Codekavya RMS," textFill="#e7e5e5">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
+   <Label layoutX="280.0" layoutY="236.0" prefHeight="141.0" prefWidth="279.0" text="Codekavya Result Management system is a technical demo application built on java to cover the application of the topics taught in Programming in Java Course." textFill="#e7e5e5" wrapText="true">
+      <font>
+         <Font size="13.0" />
+      </font>
+   </Label>
 </AnchorPane>

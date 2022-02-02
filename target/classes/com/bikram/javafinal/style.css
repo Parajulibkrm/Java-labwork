@@ -70,16 +70,26 @@
 .default-color4.chart-line-symbol { -fx-background-color: rgba(16,22,95,0.7), transparent; }
 
 
-.default-color0.chart-pie { -fx-stroke: rgba(42,115,255,0.7) }
-.default-color2.chart-pie { -fx-stroke: rgba(38,191,188,0.7) }
-.default-color1.chart-pie { -fx-stroke: rgba(250,95,126,0.7) }
-.default-color3.chart-pie { -fx-stroke: rgba(222,0,0,0.7) }
+.default-color0.chart-pie { -fx-pie-color: rgba(42,115,255,0.7) }
+.default-color2.chart-pie { -fx-pie-color: rgba(38,191,188,0.7) }
+.default-color1.chart-pie { -fx-pie-color: rgba(250,95,126,0.7) }
+.default-color3.chart-pie { -fx-pie-color: rgba(222,0,0,0.7) }
 
 .default-color0.chart-bar { -fx-bar-fill: rgba(42,115,255,0.7) }
 .default-color2.chart-bar { -fx-bar-fill: rgba(38,191,188,0.7) }
 .default-color1.chart-bar { -fx-bar-fill: rgba(250,95,126,0.7) }
 .default-color3.chart-bar { -fx-bar-fill: rgba(222,0,0,0.7) }
 
+
 .axis-label {
   -fx-text-fill: #e7e5e5;
+}
+.chart-pie-label-line {
+    -fx-stroke: #e7e5e5;
+    -fx-fill: #e7e5e5;
+}
+
+.chart-pie-label { /*this is what you need for labels*/
+    -fx-fill: #e7e5e5;
+    -fx-font-size: 1em;
 }

@@ -2,6 +2,7 @@ package com.bikram.javafinal;
 
 import com.bikram.javafinal.Models.*;
 import com.bikram.javafinal.dbconnections.Dbconnection;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +15,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -52,7 +56,7 @@ public class HomeController implements Initializable {
     private Button btnMenus;
 
     @FXML
-    private Button btnPackages;
+    private Button btnImportExport;
 
     @FXML
     private Button btnSettings;
@@ -68,6 +72,9 @@ public class HomeController implements Initializable {
 
     @FXML
     private Pane pnlOverview;
+
+    @FXML
+    private Pane pnlImportExport;
 
     @FXML
     private Pane pnlMenus;
@@ -99,6 +106,40 @@ public class HomeController implements Initializable {
 
     @FXML
     BarChart<String, Number> bc;
+
+    @FXML
+    PieChart piechart;
+
+    @FXML
+    TextField importPicker;
+
+    @FXML
+    TextField exportPicker;
+
+
+    @FXML
+    public void launchAwt (ActionEvent e){
+            AWTExample awtExample = new AWTExample();
+    }
+
+
+    @FXML
+    public void chooseFile(ActionEvent e){
+        try {
+        FileChooser fileChooser = new FileChooser();
+        File selectedFile = fileChooser.showOpenDialog(AppConstants.getSt());
+        FileInputStream fis = new FileInputStream(selectedFile);
+        int c;
+
+            while (( c = fis.read()) != -1) {
+                System.out.print((char)c);
+            }
+            fis.close();
+        }catch (Exception ex){
+            System.out.println("error while reading file");
+        }
+    }
+
 
     @FXML
     public void handleSubmit(ActionEvent e){
@@ -302,6 +343,15 @@ public class HomeController implements Initializable {
         minseries.getData().add(new XYChart.Data<String,Number>("English",min.getEnglish()));
         minseries.getData().add(new XYChart.Data<String,Number>("Nepali",min.getNepali()));
 
+        ObservableList<PieChart.Data> pieChartData =
+                FXCollections.observableArrayList(
+                        new PieChart.Data("Grapefruit", 13),
+                        new PieChart.Data("Oranges", 25),
+                        new PieChart.Data("Plums", 10),
+                        new PieChart.Data("Apples", 30));
+
+        piechart.setData(pieChartData);
+
 
 //        series1.getData().add(new XYChart.Data<String,Number>( "Test", 80));
         bc.getData().add(avgseries);
@@ -349,16 +399,14 @@ public class HomeController implements Initializable {
             pnlAddStudent.setVisible(true);
             pnlOverview.setVisible(false);
             pnlBarChart.setVisible(false);
+            pnlImportExport.setVisible(false);
             pnlAddStudent.toFront();
-        }
-        if (actionEvent.getSource() == btnMenus) {
-            pnlBarChart.toFront();
-
         }
         if (actionEvent.getSource() == btnOverview) {
 //            pnlOverview.setStyle("-fx-background-color : #02030A");
             pnlAddStudent.setVisible(false);
             pnlOverview.setVisible(true);
+            pnlImportExport.setVisible(false);
             pnlBarChart.setVisible(false);
             pnlOverview.toFront();
         }
@@ -366,12 +414,16 @@ public class HomeController implements Initializable {
         {
             pnlAddStudent.setVisible(false);
             pnlOverview.setVisible(false);
+            pnlImportExport.setVisible(false);
             pnlBarChart.setVisible(true);
             pnlBarChart.toFront();
         }
-        if(actionEvent.getSource()==btnPackages){
-            System.out.println("Packages");
-            AWTExample awtExample = new AWTExample();
+        if(actionEvent.getSource()== btnImportExport){
+            pnlImportExport.setVisible(true);
+            pnlAddStudent.setVisible(false);
+            pnlOverview.setVisible(false);
+            pnlBarChart.setVisible(false);
+            pnlImportExport.toFront();
         }
     }
 }

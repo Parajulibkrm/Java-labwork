@@ -9,7 +9,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,11 +23,11 @@ public class SignupController implements Initializable {
     private Label signupMessage;
 
     @FXML
-    private TextArea username;
+    private TextField username;
     @FXML
-    private TextArea password;
+    private PasswordField password;
     @FXML
-    private TextArea name;
+    private TextField name;
 
     @FXML
     protected void onSignUp(ActionEvent event){
