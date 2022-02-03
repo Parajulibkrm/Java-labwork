@@ -309,6 +309,7 @@
                </children></Pane>
                 <Pane fx:id="pnlMenus" prefHeight="200.0" prefWidth="200.0" visible="false">
                     <Button layoutX="403.0" layoutY="123.0" mnemonicParsing="false" onAction="#launchAwt" prefHeight="35.0" prefWidth="94.0" style="-fx-background-color: #2a73ff;" text="Launch AWT" textFill="#fdfdfd" />
+                    <Button layoutX="403.0" layoutY="223.0" mnemonicParsing="false" onAction="#launchSwing" prefHeight="35.0" prefWidth="94.0" style="-fx-background-color: #2a73ff;" text="Launch Swing" textFill="#fdfdfd" />
                 </Pane>
             </children>
         </StackPane>

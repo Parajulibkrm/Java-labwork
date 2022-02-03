@@ -1,6 +1,6 @@
 package com.bikram.javafinal.Models;
 
-public class Human {
+abstract class Human {
     static String school = "Kakshya School";
     protected String name;
 

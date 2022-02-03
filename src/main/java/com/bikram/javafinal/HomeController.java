@@ -122,6 +122,10 @@ public class HomeController implements Initializable {
             AWTExample awtExample = new AWTExample();
     }
 
+    @FXML
+    public void launchSwing(ActionEvent event) {
+        SwingExample s = new SwingExample();
+    }
 
     @FXML
     public void chooseFile(ActionEvent e){
@@ -439,4 +443,5 @@ public class HomeController implements Initializable {
             pnlMenus.toFront();
         }
     }
+
 }
